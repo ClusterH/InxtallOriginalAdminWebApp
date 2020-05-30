@@ -1,0 +1,72 @@
+<!-- Pre-loader start -->
+<div class="theme-loader">
+  <div class="ball-scale">
+    <div class='contain'>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Pre-loader end -->
+<div id="pcoded" class="pcoded" *ngIf="auth">
+  <div class="pcoded-overlay-box"></div>
+  <div class="pcoded-container navbar-wrapper">
+    <app-header></app-header>
+
+
+    <!-- Sidebar chat start -->
+
+    <!-- Sidebar inner chat start-->
+
+    <!-- Sidebar inner chat end-->
+    <div class="pcoded-main-container">
+      <div class="pcoded-wrapper">
+        <app-sidebar></app-sidebar>
+        <div class="pcoded-content">
+          <div class="pcoded-inner-content">
+            <!-- Main-body start -->
+            <div class="main-body">
+              <ngx-spinner bdColor="rgba(64,78,103,0.5)" size="large" color="#f6f7fb" type="fire"></ngx-spinner>
+              <router-outlet></router-outlet>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="!auth">
+  <router-outlet></router-outlet>
+
+</div>

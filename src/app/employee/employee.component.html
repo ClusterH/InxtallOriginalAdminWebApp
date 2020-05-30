@@ -1,0 +1,70 @@
+<div class="page-wrapper">
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>Employee</h4>
+            <span>A Work Force Of Business...</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">Employee</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Employee</h5>
+            <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                <!-- <li><i class="feather icon-maximize full-card"></i></li> -->
+                <!-- <li><i class="feather icon-minus minimize-card"></i></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="row simple-cards users-card">
+              <div class="col-md-12 col-xl-4" *ngFor="let item of (items | async)">
+                <div class="card user-card">
+                  <div class="card-header-img">
+                    <img class="img-fluid img-radius" style="width: 358px;height: 330px;" src="{{item.image}}" alt="card-img">
+                    <h4>{{item.name}}</h4>
+                    <h5>{{item.email}}</h5>
+                    <h6>{{item.phone}}</h6>
+                  </div>
+                  <p>{{item.description}}</p>
+                  <div>
+
+                    <button *ngIf="item.status =='Active'" (click)="changeStatus(item.id,'block')" type="button" class="btn btn-warning waves-effect waves-light m-r-10"
+                      style="margin-right: 10px"><i class="fas fa-lock m-r-5"></i>Block</button>
+                    <button *ngIf="item.status !='Active'" (click)="changeStatus(item.id,'unblock')" type="button"
+                      class="btn btn-success waves-effect waves-light m-r-10" style="margin-right: 10px"><i class="fas fa-lock-open m-r-5"></i>Unblock</button>
+                    <button type="button" (click)="delete(item.id)" class="btn btn-danger waves-effect waves-light"><i
+                        class="far fa-trash-alt m-r-5"></i>Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

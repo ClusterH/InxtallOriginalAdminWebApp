@@ -1,0 +1,83 @@
+<div class="page-wrapper">
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>FAQ</h4>
+            <span>Frequently asked questions</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">FAQ</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Add New FAQ</h5>
+            <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li>
+                <!-- <li><i class="feather icon-trash-2 close-card"></i></li> -->
+              </ul>
+            </div>
+          </div>
+          <div class="card-block">
+            <form #f=ngForm>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="form-group row">
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Question</label>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                      <input [(ngModel)]="create.question" name="question" type="text" class="form-control form-control-round input-radius"
+                        required>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="form-group row">
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Answer</label>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                      <textarea id="answer" cols="8" rows="8" name="answer" [(ngModel)]="create.answer" type="text"
+                        class="form-control date-control" required></textarea>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row m-t-10">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <button [disabled]='!f.valid' class="btn hor-grd btn-grd-success m-r-20" (click)="save()">Submit</button>
+                  <input type="reset" value="Reset" class="btn hor-grd btn-grd-danger ">
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

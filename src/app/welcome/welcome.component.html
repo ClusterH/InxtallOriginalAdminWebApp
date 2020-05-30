@@ -1,0 +1,50 @@
+<div class="page-wrapper" style="background-image: url('https://source.unsplash.com/random/1600x900');    background-size: cover;height: 92vh;padding: 0px">
+  <div style="  background: rgba(10, 10, 10, 0.57);
+  height: 100%;
+  width: 100%;">
+    <div id="whether">
+
+      <div class="row text-right">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-r-35 m-t-15">
+          <h6>Currant Whether</h6>
+          <h4>54 F & 23 C</h4>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+      <div id="display">
+        <div style="font-size: 11vw;margin-bottom: -70px;
+    ">{{liveTime }}</div>
+        <br>
+        <h1>{{status}},<ng-container *ngIf="!usernameTXT">
+            <span style="font-weight: bold" (click)="toggalTXT()"> {{username}}.</span>
+          </ng-container>
+          <ng-container *ngIf="usernameTXT"> <input type="text" [(ngModel)]="username" name="username" id="usernametxt"
+              class="txtBox" style="text-align: left;width:25%" (keyup.enter)="changeUserName()"></ng-container>
+        </h1>
+        <ng-container *ngIf="!this.chkfocus">
+          <h2 class="m-t-10">What is main focus for today?</h2>
+          <input type="text" [(ngModel)]="focus" name="focus" id="focustxt" class="txtBox" (keyup.enter)="action()">
+        </ng-container>
+        <ng-container *ngIf="this.chkfocus">
+          <h2 class="m-t-10"><strong>TODAY</strong></h2>
+          <h4 style="margin-top: 15px">{{focus}} &nbsp;&nbsp;<i class="fas fa-times" (click)="deleteFocus()" id="cancel"></i></h4>
+        </ng-container>
+      </div>
+    </div>
+    <div class="row" id="quote">
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 thougt">
+
+        <div>
+          <h4>"{{thougt}}"</h4>
+          <h6 class="auther">- {{auther}}</h6>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

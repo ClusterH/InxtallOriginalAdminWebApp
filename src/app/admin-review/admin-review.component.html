@@ -1,0 +1,87 @@
+<div class="page-wrapper">
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>Main Category</h4>
+            <span>Its Define What Happens In Market.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">Category</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Main Category</h5>
+            <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                <!-- <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <ngx-datatable [rows]="(items | async)" #mydatatable class="material" [headerHeight]="50" [limit]="5"
+              [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'">
+              <ngx-datatable-column name="#">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                  {{rowIndex+1}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="User">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{(row.user | async)?.email}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Shop">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{(row.maechant | async)?.shopName}}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="Time">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <!-- {{(availableEmp | async)?.email}} -->
+                  {{row.create_date | date:'medium'}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Comment" prop="cmt">
+
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Star">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <span [ngClass]="row.star >= 1 ? 'fa fa-star checked' : 'fa fa-star'"></span>
+                  <span [ngClass]="row.star >= 2 ? 'fa fa-star checked' : 'fa fa-star'"></span>
+                  <span [ngClass]="row.star >= 3 ? 'fa fa-star checked' : 'fa fa-star'"></span>
+                  <span [ngClass]="row.star >= 4 ? 'fa fa-star checked' : 'fa fa-star'"></span>
+                  <span [ngClass]="row.star >= 5 ? 'fa fa-star checked' : 'fa fa-star'"></span>
+                </ng-template>
+              </ngx-datatable-column>
+
+
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

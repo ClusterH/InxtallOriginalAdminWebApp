@@ -1,0 +1,8 @@
+{
+  "short_name": "Your App Name",
+  "name": "Title For Notification",
+  "start_url": "/",
+  "display": "standalone",
+
+  "gcm_sender_id": "103953800507"
+}

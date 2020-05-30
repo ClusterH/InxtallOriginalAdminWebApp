@@ -1,0 +1,126 @@
+<nav class="navbar header-navbar pcoded-header iscollapsed">
+  <div class="navbar-wrapper">
+
+    <div class="navbar-logo">
+      <a class="mobile-menu" id="mobile-collapse">
+        <i class="feather icon-menu"></i>
+      </a>
+      <a [routerLink]="[ '/welcome']" href="index.html">
+
+
+        <img class="img-fluid" src="../assets/files/assets/images/logo.png" alt="Theme-Logo" />
+      </a>
+      <a class="mobile-options">
+        <i class="feather icon-more-horizontal"></i>
+      </a>
+    </div>
+
+    <div class="navbar-container container-fluid">
+      <ul class="nav-left">
+        <!-- <li class="header-search">
+          <div class="main-search morphsearch-search">
+            <div class="input-group">
+              <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
+              <input type="text" class="form-control">
+              <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
+            </div>
+          </div>
+        </li> -->
+        <li>
+          <a onclick="javascript:toggleFullScreen()">
+            <i class="feather icon-maximize full-screen"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav-right">
+
+        <li class="user-profile header-notification">
+          <div class="dropdown-primary dropdown">
+            <div class="dropdown-toggle" data-toggle="dropdown">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZU0C_X-_BFvuc3MdB5Wb_K0V06Jl0d40BrIfvkf7zUG0J44Za"
+                class="img-radius" style="width: 40px" alt="User-Profile-Image">
+              <!-- <i class="feather icon-chevron-down"></i> -->
+            </div>
+            <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn"
+              data-dropdown-out="fadeOut">
+              <li *ngIf="role ==='1011'">
+                <a data-toggle="modal" data-target="#mainAdmin">
+                  <i class="feather icon-user"></i> Profile
+                </a>
+              </li>
+              <li *ngIf="role ==='1997'">
+                <a [routerLink]="[ '/profile']">
+                  <i class=" feather icon-user"></i> Profile
+                </a>
+              </li>
+              <li (click)="logout()">
+                <a>
+                  <i class="feather icon-log-out"></i> Logout
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="modal fade" id="mainAdmin" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Change Account Information</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+
+            <div class="form-group row">
+              <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  col-form-label">Email</label>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                <input type="email" [(ngModel)]="create.email" name="email" class="form-control input-radius " readonly>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+
+            <div class="form-group row">
+              <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  col-form-label">Password</label>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                <input autocomplete="off" type="password" [(ngModel)]="create.password" name="password" class="form-control input-radius ">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <div class="form-group row">
+              <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  col-form-label">Paypal SendBox Key</label>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                <input autocomplete="off" type="text" [(ngModel)]="paypalSendBox" name="paypal" class="form-control input-radius ">
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+          <button type="button" (click)="updatedata()" class="btn btn-primary waves-effect waves-light ">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

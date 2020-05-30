@@ -1,0 +1,50 @@
+export interface MarchantData {
+    name: string;
+    email: string;
+    description: string;
+    password: string;
+    noOfEmp: number;
+    noOfService: number;
+    radius: number;
+    shopName: string;
+    username: string;
+    coverImage: string;
+    lat: number;
+    lng: number;
+    profileImage: string;
+    time: [{
+        'end': string,
+        'start': string
+    }, {
+        'end': string,
+        'start': string
+    }, {
+        'end': string,
+        'start': string
+    }, {
+        'end': string,
+        'start': string
+    }, {
+        'end': string,
+        'start': string
+    }, {
+        'end': string,
+        'start': string
+    }, {
+        'end': string,
+        'start': string
+    }];
+    token: string;
+    remainWash: number;
+    remainDays: number;
+    address: string;
+    phone: string;
+    service: string;
+    status: string;
+    purchaseStatus: string;
+    adminStatus: string;
+    role: number;
+    PayPalEnvironmentProduction: string;
+    PayPalEnvironmentSandbox: string;
+
+}

@@ -1,0 +1,88 @@
+<div class="page-wrapper">
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>Subscription</h4>
+            <span>Buy Subscription And Inherence Your Business...</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">Subscription</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Subscription</h5>
+
+            <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                <!-- <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-block">
+
+
+
+            <div class="price-table-wrapper  row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let item of (items |async)">
+                <div class="pricing-table w-100 ">
+                  <h2 class="pricing-table__header">{{item.title}}</h2>
+                  <h3 class="pricing-table__price">${{item.price}}</h3>
+                  <a class="pricing-table__button" (click)="paymentModel(item.price,item.title,item.id,item.totalDay,item.totalWash)">
+                    Buy Now
+                  </a>
+                  <ul class="pricing-table__list">
+                    <li>{{item.totalDay}} day time limit</li>
+                    <li>{{item.totalWash}} total wash available</li>
+                    <li>{{item.description}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="large-Modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">You Want To Buy This Subscription ???</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No! Stay away...</button>
+
+      </div>
+    </div>
+  </div>
+</div>

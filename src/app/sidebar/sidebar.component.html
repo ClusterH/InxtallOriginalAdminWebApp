@@ -1,0 +1,306 @@
+<nav class="pcoded-navbar">
+  <div class="pcoded-inner-navbar main-menu">
+    <div class="pcoded-navigatio-lavel">Navigation</div>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='1011'">
+      <li class="pcoded-hasmenu ">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="far fa-credit-card"></i>
+            <!-- <i class="fas fa-synagogue"></i> -->
+          </span>
+          <span class="pcoded-mtext">Subscription</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class="">
+            <a [routerLink]="[ 'subscription' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">View Subscription</span>
+            </a>
+          </li>
+          <li class="">
+
+            <a [routerLink]="[ 'subscription/add' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Add Subscription</span>
+            </a>
+          </li>
+          <li class="">
+
+            <a [routerLink]="[ 'subscription/admin/view' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Subscription Buyer</span>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </li>
+
+
+
+    </ul>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role==='1011'">
+      <li class="pcoded-hasmenu ">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="fas fa-th-large"></i>
+            <!-- <i class="fas fa-synagogue"></i> -->
+          </span>
+          <span class="pcoded-mtext">Category</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class="">
+            <a [routerLink]="[ 'category' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">View Category</span>
+            </a>
+          </li>
+          <li class="">
+
+            <a [routerLink]="[ 'category/add' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Add Category</span>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+
+
+    </ul>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role==='1011'">
+      <li class="pcoded-hasmenu ">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="fas fa-crow"></i>
+          </span>
+          <span class="pcoded-mtext">Policy / About us</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class="">
+            <a [routerLink]="[ 'policy' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Privacy and Policy</span>
+            </a>
+          </li>
+          <li class="">
+
+            <a [routerLink]="[ 'about' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">About us</span>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+
+
+    </ul>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role==='1011'">
+      <li class="pcoded-hasmenu ">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="fas fa-question"></i>
+          </span>
+          <span class="pcoded-mtext">FAQ</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class="">
+            <a [routerLink]="[ 'faq' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">View FAQ</span>
+            </a>
+          </li>
+          <li class="">
+
+            <a [routerLink]="[ 'faq/add' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Add FAQ</span>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+
+
+    </ul>
+
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='1997'">
+      <li class="">
+        <!-- <i class="fas fa-tachometer-alt"></i> -->
+        <a routerLink="marchant/dashboard" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="fas fa-tachometer-alt"></i>
+          </span>
+          <span class="pcoded-mtext">Dashboard</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='1011'">
+      <li class="">
+        <!-- <i class="fas fa-tachometer-alt"></i> -->
+        <a routerLink="admin/review" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="fas fa-star-half-alt"></i>
+          </span>
+          <span class="pcoded-mtext">Review</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='404'">
+      <li class="">
+        <!-- <i class="fas fa-tachometer-alt"></i> -->
+        <a routerLink="subscription/buy" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="far fa-credit-card"></i>
+          </span>
+          <span class="pcoded-mtext">Buy Subscription</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='1011'">
+      <li class="">
+        <!-- <i class="fas fa-tachometer-alt"></i> -->
+        <a routerLink="Marchant/admin/view" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="fas fa-city"></i>
+          </span>
+          <span class="pcoded-mtext">Marchant</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='1997'">
+      <li class="pcoded-hasmenu ">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+
+            <i class="fas fa-cannabis"></i>
+          </span>
+          <span class="pcoded-mtext">Service</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class="">
+            <a [routerLink]="[ 'service' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">View Service</span>
+            </a>
+          </li>
+          <li class="">
+
+            <a [routerLink]="[ 'service/add' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Add Service</span>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+
+
+    </ul>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='1997'">
+      <li class="pcoded-hasmenu ">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+
+            <i class="fas fa-truck"></i>
+          </span>
+          <span class="pcoded-mtext">Booking</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class="">
+            <a [routerLink]="[ 'marchant/booking' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Waiting</span>
+            </a>
+          </li>
+          <li class="">
+
+            <a [routerLink]="[ 'marchant/booking/complete' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Complete / Cancel</span>
+            </a>
+          </li>
+
+
+        </ul>
+      </li>
+
+
+
+    </ul>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='1997'">
+      <li class="pcoded-hasmenu ">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="fas fa-gift"></i>
+            <!-- <i class="fas fa-synagogue"></i> -->
+          </span>
+          <span class="pcoded-mtext">Package</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class="">
+            <a [routerLink]="[ 'package' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">View Package</span>
+            </a>
+          </li>
+          <li class="">
+
+            <a [routerLink]="[ 'package/add' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Add Package</span>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+
+
+    </ul>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='1997'">
+      <li class="pcoded-hasmenu ">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="fas fa-user-tie"></i>
+            <!-- <i class="fas fa-gift"></i> -->
+
+          </span>
+          <span class="pcoded-mtext">Employee</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class="">
+            <a [routerLink]="[ 'employee' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">View Employee</span>
+            </a>
+          </li>
+          <li class="">
+
+            <a [routerLink]="[ 'employee/add' ]" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Add Employee</span>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+
+
+    </ul>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='1997'">
+      <li class="">
+        <!-- <i class="fas fa-tachometer-alt"></i> -->
+        <a routerLink="marchant/review" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="fas fa-star-half-alt"></i>
+          </span>
+          <span class="pcoded-mtext">Review</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="pcoded-item pcoded-left-item" *ngIf="role ==='1997'">
+      <li class="">
+        <!-- <i class="fas fa-tachometer-alt"></i> -->
+        <a routerLink="subscription/buy" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="far fa-credit-card"></i>
+          </span>
+          <span class="pcoded-mtext">Buy Subscription</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

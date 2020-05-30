@@ -1,0 +1,182 @@
+<div class="page-wrapper">
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>Package</h4>
+            <span>A User Love To Buy...</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">Package</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Package </h5>
+            <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                <!-- <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <ngx-datatable [rows]="(items | async)" #mydatatable class="material" [headerHeight]="50" [limit]="5"
+              [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'">
+              <ngx-datatable-column name="#">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                  {{rowIndex+1}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="name"></ngx-datatable-column>
+              <ngx-datatable-column name="description"> </ngx-datatable-column>
+              <ngx-datatable-column name="Service" prop="serviceName">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <ng-container *ngFor="let s of value;">
+                    <label class=" label label-md label-primary">{{(s | async )?.name}}</label>
+                  </ng-container>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="duration"> </ngx-datatable-column>
+              <ngx-datatable-column name="price">$ </ngx-datatable-column>
+              <ngx-datatable-column name="status">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <label *ngIf="value=='Active'" class="label label-lg label-success">Active</label>
+                  <label *ngIf="value!='Active'" class="label label-lg label-danger">DeActive</label>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="image">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <img src="{{value}}" class="img-red">
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Operation" prop="id">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <button (click)="modelOpen(value)" class="btn btn-warning btn-icon"><i class="far fa-edit"></i></button>&nbsp;&nbsp;
+                  <button (click)="delete(value)" class="btn btn-danger btn-icon"><i class="far fa-trash-alt"></i></button>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="large-Modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Package</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #f=ngForm>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group row">
+                <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Name</label>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <input [(ngModel)]="edit.name" name="name" type="text" class="form-control form-control-round input-radius"
+                    required>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group row">
+                <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Price</label>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <input [(ngModel)]="edit.price" name="price" type="number" class="form-control form-control-round input-radius"
+                    required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <label for="date" class="block">Description</label>
+                </div>
+                <div class="col-sm-12">
+                  <textarea id="description" cols="8" rows="8" name="description" [(ngModel)]="edit.description" type="text"
+                    class="form-control date-control" required></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <angular2-multiselect name='select' [data]="dropdownList" [(ngModel)]="selectedItems" [settings]="dropdownSettings"></angular2-multiselect>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group row">
+                <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Duration</label>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <input [(ngModel)]="edit.duration" name="duration" type="number" class="form-control form-control-round input-radius"
+                    required>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group row">
+                <label class="col-sm-12 col-form-label">Status</label>
+                <div class="col-sm-12">
+                  <select [(ngModel)]="edit.status" required name="status" class="form-control input-radius">
+                    <option value="Active" selected>Active</option>
+                    <option value="Deactivate">Deactivate</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group row">
+                <label class="col-sm-12 col-form-label">Upload Image</label>
+                <div class="col-sm-12">
+                  <input type="file" required class="form-control input-radius" (change)="setImage($event)" accept="image/*">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+        <button type="button" (click)="update()" class="btn btn-primary waves-effect waves-light " [disabled]='!f.valid'>Save
+          changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,194 @@
+<div class="page-wrapper">
+
+  <!-- Page body start -->
+  <div class="page-body">
+    <!-- Container-fluid starts -->
+    <div class="container">
+      <!-- Main content starts -->
+      <div>
+        <!-- Invoice card start -->
+        <div class="card">
+          <div class="row invoice-contact">
+            <div class="col-md-8">
+              <div class="invoice-box row">
+                <div class="col-sm-12">
+                  <table class="table table-responsive invoice-table table-borderless">
+                    <!-- <tbody>
+                      <tr>
+                        <td><img src="../assets/files/assets/images/logo-blue.png" class="m-b-10" alt=""></td>
+                      </tr>
+                      <tr>
+                        <td>Compney Name</td>
+                      </tr>
+                      <tr>
+                        <td>123 6th St. Melbourne, FL 32904 West Chicago, IL 60185</td>
+                      </tr>
+                      <tr>
+                        <td>DerDi@der.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>+91 919-91-91-919</td>
+                      </tr>
+                    
+                    </tbody> -->
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+          </div>
+          <div class="card-block">
+            <div class="row invoive-info">
+              <div class="col-md-4 col-xs-12 invoice-client-info">
+                <h6>Client Information :</h6>
+                <h6 class="m-0">{{(data?.user |async)?.name}}</h6>
+                <!-- <h6 class="m-0">DR.Der</h6> -->
+                <p class="m-0 m-t-10">{{(data?.userAddress | async )?.Address}}</p>
+                <p class="m-0">+91 852963741</p>
+                <p class="m-0">{{(data?.user |async)?.mobileNo}}</p>
+                <p>{{(data?.user |async)?.email}}</p>
+                <!-- <p>Email@email.com</p> -->
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <h6>Order Information :</h6>
+                <table class="table table-responsive invoice-table invoice-order table-borderless">
+                  <tbody>
+                    <tr>
+                      <th>Date :</th>
+                      <td>{{data?.startTime | date }}</td>
+                    </tr>
+                    <tr>
+                      <th>Status :</th>
+                      <td>
+                        <span *ngIf="data?.status == 0 " class="label label-warning">Unsign</span>
+                        <span *ngIf="data?.status == 1 " class="label label-warning">Waiting For Turn</span>
+                        <span *ngIf="data?.status == 2 " class="label label-warning">Complete</span>
+                        <span *ngIf="data?.status == 3 " class="label label-warning">Cancel</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Assign Employee:</th>
+                      <td>
+                        {{(data?.availableEmp | async )?.email}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>At Where</th>
+                      <td>
+                        <label *ngIf="data?.UserWant =='COME'" class="label label-lg label-success">At Shop</label>
+                        <label *ngIf="data?.UserWant =='STAY'" class="label label-lg label-danger">At UserLocation</label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <h6 class="m-b-20">Invoice Number <span>#{{key}}</span></h6>
+                <h6 class="text-uppercase text-primary">Total Amount :
+                  <span>${{data?.total }}</span>
+                </h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="table-responsive">
+                  <table class="table  invoice-detail-table">
+                    <thead>
+                      <tr class="thead-default">
+                        <th>Description</th>
+                        <th>Duration</th>
+                        <th>Amount</th>
+                        <!-- <th>Total</th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr *ngFor="let s of data?.serviceName;">
+                        <td>
+                          <h6>{{(s | async )?.name}}</h6>
+                          <p>{{(s | async )?.description}}
+                          </p>
+                        </td>
+                        <td>{{(s | async )?.duration}} minute's</td>
+                        <td>${{(s | async )?.price}}</td>
+
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table table-responsive invoice-table invoice-total">
+                  <tbody>
+                    <tr>
+                      <th>Sub Total :</th>
+                      <td>${{data?.subTotal }}</td>
+                    </tr>
+                    <!-- <tr>
+                      <th>Taxes (10%) :</th>
+                      <td>$57.00</td>
+                    </tr> -->
+                    <tr>
+                      <th>Discount (5%) :</th>
+                      <td>${{data?.discount }}</td>
+                    </tr>
+                    <tr class="text-info">
+                      <td>
+                        <hr />
+                        <h5 class="text-primary">Total :</h5>
+                      </td>
+                      <td>
+                        <hr />
+                        <h5 class="text-primary">${{data?.total }}</h5>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <h6>Terms And Condition :</h6>
+                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor </p>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <h3>Live Location Update</h3>
+
+                <agm-map [fullscreenControl]=true [latitude]="lat" [longitude]="lag">
+                  <agm-marker [latitude]="lat" [longitude]="lag" [markerDraggable]='false' [openInfoWindow]>
+
+
+                  </agm-marker>
+                  <!-- <agm-circle [latitude]="create.lat" [longitude]="create.lng" [radius]="create.radius * 1000"
+                    [fillColor]="'#00008b'">
+                  </agm-circle> -->
+                </agm-map>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- Invoice card end -->
+        <div class="row text-center">
+          <div class="col-sm-12 invoice-btn-group text-center">
+            <button type="button" class="btn btn-primary btn-print-invoice m-b-10 btn-sm waves-effect waves-light m-r-20">Print</button>
+            <button type="button" class="btn btn-danger waves-effect m-b-10 btn-sm waves-light">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container ends -->
+  </div>
+  <!-- Page body end -->
+</div>

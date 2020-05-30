@@ -1,0 +1,437 @@
+<div class="page-wrapper">
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>Profile</h4>
+            <span>Hii It`s Your Digital Mirror...</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">User Profile</a>
+            </li>
+            <!-- <li class="breadcrumb-item"><a href="#!">Timeline Social</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+  <!-- Page-body start -->
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div>
+          <div class="content social-timeline">
+            <div class="">
+              <!-- Row Starts -->
+              <div class="row">
+                <div class="col-md-12">
+                  <!-- Social wallpaper start -->
+                  <div class="social-wallpaper">
+                    <img src="{{this.create.coverImage}}" style="height: 250px !important" class="img-fluid width-100"
+                      alt="" />
+                    <div class="profile-hvr">
+                      <i (click)="coverPic.click()" class="icofont icofont-ui-edit p-r-10"></i>
+                      <input type="file" (change)="setImage($event,'cover')" accept="image/*" #coverPic style="display: none;">
+                      <!-- <i class="icofont icofont-ui-delete"></i> -->
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!-- Row end -->
+              <!-- Row Starts -->
+              <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-xs-12">
+                  <!-- Social timeline left start -->
+                  <div class="social-timeline-left">
+                    <!-- social-profile card start -->
+                    <div class="card">
+                      <div class="social-profile">
+                        <img class="img-fluid width-100" style="height: 280px !important" src="{{this.create.profileImage}}"
+                          alt="">
+                        <div class="profile-hvr m-t-15">
+                          <i (click)="profilePic.click()" class="icofont icofont-ui-edit p-r-10"></i>
+                          <input type="file" (change)="setImage($event,'profile')" accept="image/*" #profilePic style="display: none;">
+                          <!-- <i class="icofont icofont-ui-delete"></i> -->
+                        </div>
+                      </div>
+                      <div class="card-block social-follower">
+                        <h4>{{this.create.username}}</h4>
+                        <h5>{{this.create.shopName}}</h5>
+
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- Social timeline left end -->
+                </div>
+                <div class="col-xl-9 col-lg-8 col-md-8 col-xs-12 ">
+                  <!-- Nav tabs -->
+                  <div class="card social-tabs">
+                    <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#about" role="tab">About</a>
+                        <div class="slide"></div>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#timeline" role="tab">Payment Configuration</a>
+                        <div class="slide"></div>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#photos" role="tab">Location</a>
+                        <div class="slide"></div>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#friends" role="tab">Time</a>
+                        <div class="slide"></div>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <!-- Timeline tab start -->
+                    <div class="tab-pane active" id="timeline">
+                      <div class="card">
+                        <div class="card-block">
+                          <form>
+                            <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">PayPal
+                                    Environment Production</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.PayPalEnvironmentProduction" name="PayPalEnvironmentProduction"
+                                      type="text" class="form-control form-control-round input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">PayPal
+                                    Environment Sandbox</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.PayPalEnvironmentSandbox" name="PayPalEnvironmentSandbox"
+                                      type="text" class="form-control form-control-round input-radius" readonly>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+                            <div class="row m-t-10">
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <button class="btn hor-grd btn-grd-success m-r-20" (click)="setPaypal()">Update</button>
+                                <input type="reset" value="Reset" class="btn hor-grd btn-grd-danger ">
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!-- Timeline tab end -->
+                    <!-- About tab start -->
+                    <div class="tab-pane" id="about">
+                      <div class="card">
+                        <div class="card-block">
+                          <form>
+                            <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Name</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.name" name="name" type="text" class="form-control form-control-round input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Email</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.email" name="email" type="email" class="form-control form-control-round input-radius"
+                                      readonly>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Username</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.username" name="username" type="text" class="form-control form-control-round input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Password</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.password" name="password" type="password" class="form-control form-control-round input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Phone</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.phone" name="phone" type="tel" class="form-control form-control-round input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group row">
+                                  <label class="col-sm-12 col-form-label">Service</label>
+                                  <div class="col-sm-12">
+                                    <select [(ngModel)]="create.service" name="service" class="form-control input-radius">
+                                      <option *ngFor="let category of (items |  async )" value="{{category?.id}}">{{category?.name}}</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group row">
+                                  <label class="col-sm-12 col-form-label">Status</label>
+                                  <div class="col-sm-12">
+                                    <select [(ngModel)]="create.status" name="status" class="form-control input-radius">
+                                      <option value="Active" selected>Active</option>
+                                      <option value="Deactivate">Deactivate</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row m-t-10">
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <button class="btn hor-grd btn-grd-success m-r-20" (click)="setData()">Update</button>
+                                <input type="reset" value="Reset" class="btn hor-grd btn-grd-danger ">
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- About tab end -->
+                    <!-- Location tab start -->
+                    <div class="tab-pane" id="photos">
+                      <div class="card">
+                        <div class="card-block">
+
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                              <div class="input-group input-group-button">
+                                <input [(ngModel)]="create.radius" type="number" id="radius" name="radius" class="form-control"
+                                  placeholder="radius in km From location">
+                                <span class="input-group-addon input-group-addon-success" id="basic-addon2">
+                                  <button (click)="updateLocation()" class="btn btn-success">Update</button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                              <div class="input-group input-group-button">
+                                <input [(ngModel)]="address" type="text" id="address" name="address" class="form-control"
+                                  placeholder="Write your place">
+                                <span class="input-group-addon" id="basic-addon1">
+                                  <button (click)="der()" class="btn btn-primary">Search Location</button>
+                                </span>
+                              </div>
+
+
+                              <agm-map [fullscreenControl]=true [latitude]="create.lat" [longitude]="create.lng">
+                                <agm-marker [latitude]="create.lat" [longitude]="create.lng" (dragEnd)="placeMarker($event)"
+                                  [markerDraggable]='true' [openInfoWindow]>
+
+                                  <agm-info-window>Select Your Shop Location</agm-info-window>
+                                </agm-marker>
+                                <agm-circle [latitude]="create.lat" [longitude]="create.lng" [radius]="create.radius * 1000"
+                                  [fillColor]="'#00008b'">
+                                </agm-circle>
+                              </agm-map>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Location tab end -->
+                    <!-- Time tab start -->
+                    <div class="tab-pane" id="friends">
+                      <div class="card">
+                        <div class="card-block">
+                          <form>
+                            <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Start
+                                    Time
+                                    (Sunday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[0].start" name="sunday_start_time" type="time"
+                                      class="time form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-sm-12 col-form-label">End Time (Sunday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[0].end" name="sunday_end_time" type="time" id="myID"
+                                      class="time form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Start
+                                    Time
+                                    (Monday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[1].start" name="mon_start_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-sm-12 col-form-label">End Time (Monday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[1].end" name="mon_end_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Start
+                                    Time
+                                    (Tuesday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[2].start" name="tue_start_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-sm-12 col-form-label">End Time (Tuesday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[2].end" name="tue_end_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Start
+                                    Time
+                                    (Wednesday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[3].start" name="wed_start_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-sm-12 col-form-label">End Time (Wednesday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[3].end" name="wed_end_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Start
+                                    Time
+                                    (Thursday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[4].start" name="thu_start_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-sm-12 col-form-label">End Time (Thursday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[4].end" name="thu_end_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Start
+                                    Time
+                                    (Friday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[5].start" name="fri_start_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-sm-12 col-form-label">End Time (Friday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[5].end" name="fri_end_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Start
+                                    Time
+                                    (Saturday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[6].start" name="sat_start_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <div class="form-group row">
+                                  <label class="col-sm-12 col-form-label">End Time (Saturday)</label>
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input [(ngModel)]="create.time[6].end" name="sat_end_time" type="time" class="form-control input-radius">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row m-t-10">
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <button class="btn hor-grd btn-grd-success m-r-20" (click)="setData()">Update</button>
+                                <input type="reset" value="Reset" class="btn hor-grd btn-grd-danger ">
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Time tab end -->
+                  </div>
+                  <!-- Row end -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-body end -->
+</div>

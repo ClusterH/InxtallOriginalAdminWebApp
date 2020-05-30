@@ -1,0 +1,85 @@
+<div class="page-wrapper">
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>Subscription Purchase List</h4>
+            <span>How And Where Money Comes...</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">Subscription</a> </li>
+            <li class="breadcrumb-item"><a href="#!">Purchase</a> </li>
+            <li class="breadcrumb-item"><a href="#!">View</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Purchase List</h5>
+            <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                <!-- <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <ngx-datatable [rows]="(items | async)" #mydatatable class="material" [headerHeight]="50" [limit]="5"
+              [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'">
+              <ngx-datatable-column name="#">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                  {{rowIndex+1}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Shop Name" prop="marchantData">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{(value| async )?.shopName }}
+                </ng-template>
+
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Plan" prop="planData">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{(value | async )?.title}} & ${{(value | async )?.price}}
+                </ng-template>
+
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Payment Token" prop="payment_token">
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="time">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{value | timeAgo}}
+                </ng-template>
+              </ngx-datatable-column>
+
+              <!-- <ngx-datatable-column name="Operation" prop="id">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <button (click)="modelOpen(value)" class="btn btn-warning btn-icon"><i class="far fa-edit"></i></button>&nbsp;&nbsp;
+                  <button (click)="delete(value)" class="btn btn-danger btn-icon"><i class="far fa-trash-alt"></i></button>
+                </ng-template>
+              </ngx-datatable-column> -->
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

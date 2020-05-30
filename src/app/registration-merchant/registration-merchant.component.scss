@@ -1,0 +1,80 @@
+app-registration-merchant {
+  .wizard>.steps .current a {
+    background-color: #3b8df9 !important;
+    font-size: 16px;
+    padding: 8px 8px;
+  }
+
+  .wizard>.actions a {
+    background-color: #3b8df9 !important;
+    font-size: 17px;
+  }
+
+  #basic-forms-p-2 {
+    text-align: center;
+  }
+
+  .wizard>.actions .disabled a {
+    background: #eee !important;
+    color: #aaa !important;
+  }
+
+  .wizard>.steps {
+    margin-bottom: 25px;
+    margin-left: 10vw;
+    text-align: center;
+  }
+
+  .wizard>.content {
+    border: none;
+  }
+
+  .wizard>.steps .done a {
+    font-size: 16px;
+    padding: 8px 8px;
+    background-color: transparent;
+    color: black;
+  }
+
+  .wizard>.content>.body {
+    padding: 0px;
+  }
+
+  .bottom-border {
+    border-bottom: 1px solid #e6e6e6 !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+  }
+
+  .block {
+    color: grey;
+  }
+
+  .wizard>.steps .disabled a,
+    {
+    background-color: transparent;
+    color: black;
+    font-size: 16px;
+    padding: 8px 8px;
+  }
+
+  strong {
+    font-size: 16px;
+    font-weight: 500 !important;
+  }
+
+  .number {
+    font-size: 16px !important;
+  }
+
+  .login-block {
+    background: #000046 !important;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1CB5E0, #000046) !important;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1CB5E0, #000046) !important;
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
+}

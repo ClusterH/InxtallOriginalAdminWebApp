@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+.ngx-datatable.material {
+  background: none !important;
+  border: 1px solid #e6e6e6;
+  box-shadow: none !important
+}
+
+.custom-class-example {
+  color: #ccc;
+}
+
+.custom-class-example .c-token {
+  background: #404e67 !important;
+}
+
+.custom-class-example .pure-checkbox label::before {
+  border-color: #404e67 !important;
+}
+
+.selected-item {
+  background: #404e67 !important;
+}
+
+// .pure-checkbox input[type="checkbox"] {
+//   border: greenyellow !important
+// }
+
+.custom-class-example .pure-checkbox input[type="checkbox"]:checked+label[_ngcontent-c1]:before {
+  background: #404e67 !important;
+}
+
+.cuppa-dropdown {
+  border: 1px solid #e6e6e6;
+}

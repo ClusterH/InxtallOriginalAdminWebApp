@@ -1,0 +1,123 @@
+<div class="page-wrapper">
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>Main Category</h4>
+            <span>Its Define What Happens In Market.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">Category</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Main Category</h5>
+            <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                <!-- <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <ngx-datatable [rows]="(items | async)" #mydatatable class="material" [headerHeight]="50" [limit]="5"
+              [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'">
+              <ngx-datatable-column name="#">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                  {{rowIndex+1}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="name"></ngx-datatable-column>
+              <ngx-datatable-column name="status">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <label *ngIf="value=='Active'" class="label label-lg label-success">Active</label>
+                  <label *ngIf="value!='Active'" class="label label-lg label-danger">DeActive</label>
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="Operation" prop="id">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <button (click)="modelOpen(value)" class="btn btn-warning btn-icon"><i class="far fa-edit"></i></button>&nbsp;&nbsp;
+                  <button (click)="delete(value)" class="btn btn-danger btn-icon"><i class="far fa-trash-alt"></i></button>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="large-Modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Category</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group row">
+                <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">Name</label>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <input [(ngModel)]="edit.name" name="name" type="text" class="form-control form-control-round input-radius">
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group row">
+                <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">icon</label>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <input [(ngModel)]="edit.icon" name="icon" type="text" class="form-control form-control-round input-radius">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group row">
+                <label class="col-sm-12 col-form-label">Status</label>
+                <div class="col-sm-12">
+                  <select [(ngModel)]="edit.status" name="status" class="form-control input-radius">
+                    <option value="Active" selected>Active</option>
+                    <option value="Deactivate">Deactivate</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+        <button type="button" (click)="update()" class="btn btn-primary waves-effect waves-light ">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

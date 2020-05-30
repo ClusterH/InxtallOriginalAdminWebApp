@@ -1,0 +1,83 @@
+<div class="page-wrapper">
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>Marchant</h4>
+            <span>Our Customer...</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">Marchant</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Marchant</h5>
+            <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                <!-- <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <ngx-datatable [rows]="(items | async)" #mydatatable class="material" [headerHeight]="50" [limit]="5"
+              [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'">
+              <ngx-datatable-column name="#">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                  {{rowIndex+1}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="shopName"></ngx-datatable-column>
+              <ngx-datatable-column name="email"></ngx-datatable-column>
+              <ngx-datatable-column name="phone"></ngx-datatable-column>
+              <ngx-datatable-column name="address"></ngx-datatable-column>
+              <ngx-datatable-column name="remainWash"></ngx-datatable-column>
+              <ngx-datatable-column name="remainDays"></ngx-datatable-column>
+              <ngx-datatable-column name="status">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <label *ngIf="value=='Active'" class="label label-lg label-success">Active</label>
+                  <label *ngIf="value!='Active'" class="label label-lg label-danger">DeActive</label>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="purchaseStatus">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <label *ngIf="value=='Active'" class="label label-lg label-success">Active</label>
+                  <label *ngIf="value!='Active'" class="label label-lg label-danger">DeActive</label>
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="Operation">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <button *ngIf="row.adminStatus =='Active'" (click)="changeStatus(row.id,'block')" type="button" class="btn btn-warning waves-effect waves-light m-r-10"
+                    style="margin-right: 10px"><i class="fas fa-lock m-r-5"></i>Block</button>
+                  <button *ngIf="row.adminStatus !='Active'" (click)="changeStatus(row.id,'unblock')" type="button"
+                    class="btn btn-success waves-effect waves-light m-r-10" style="margin-right: 10px"><i class="fas fa-lock-open m-r-5"></i>Unblock</button>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

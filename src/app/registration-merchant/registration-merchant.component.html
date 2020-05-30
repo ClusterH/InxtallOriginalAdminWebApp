@@ -1,0 +1,153 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<section class="login-block">
+
+  <!-- Container-fluid starts -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card" style="border-radius: 25px">
+
+          <div class="card-block">
+            <!-- Authentication card start -->
+            <form id="basic-forms" name="basic-forms">
+              <h3><strong> Personal information </strong></h3>
+              <fieldset>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                    <label for="userName-2" class="block">Name*</label>
+                  </div>
+                  <div class="col-sm-12">
+                    <input id="name" [(ngModel)]="name" name="name" type="text" class="form-control bottom-border"
+                      required>
+
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                    <label for="email-2-1" class="block email">Email
+                      *</label>
+                  </div>
+                  <div class="col-sm-12">
+                    <input id="email" name="email" [(ngModel)]="create.email" type="email" class=" form-control bottom-border"
+                      required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                    <label for="email-2-1" class="block">UserName
+                      *</label>
+                  </div>
+                  <div class="col-sm-12">
+                    <input id="username" [(ngModel)]="create.username" name="username" type="text" class="form-control bottom-border"
+                      required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                    <label for="password-2" class="block">Password
+                      *</label>
+                  </div>
+                  <div class="col-sm-12 col-lg-12">
+                    <input id="password" name="password" [(ngModel)]="create.password" type="password" class="form-control bottom-border"
+                      required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                    <label for="confirm-2" class="block">Confirm
+                      Password*</label>
+                  </div>
+                  <div class="col-sm-12">
+                    <input id="conf_confirm" name="conf_confirm" type="password" class="form-control bottom-border"
+                      required>
+                  </div>
+                </div>
+              </fieldset>
+              <h3><strong> Shop information </strong></h3>
+              <fieldset>
+
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group row">
+                      <div class="col-sm-12">
+                        <label for="surname-2" class="block">Shop Name*</label>
+                      </div>
+                      <div class="col-sm-12">
+                        <input id="shopName" name="shopName" [(ngModel)]="create.shopName" type="text " class="form-control bottom-border">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group row">
+                      <div class="col-sm-12">
+                        <label for="phone-2" class="block">Phone</label>
+                      </div>
+                      <div class="col-sm-12">
+                        <input id="phone" name="phone" [(ngModel)]="create.phone" type="number" class="form-control phone bottom-border">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group row">
+                      <div class="col-sm-12">
+                        <label for="Country-2" class="block">No of employee</label>
+                      </div>
+                      <div class="col-sm-12">
+                        <input id="noOfEmp" name="noOfEmp" type="number" [(ngModel)]="create.noOfEmp" class="form-control required bottom-border">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group row">
+                      <div class="col-sm-12">
+                        <label for="Degreelevel-2" class="block">No of service</label>
+                      </div>
+                      <div class="col-sm-12">
+                        <input id="noOfService" name="noOfService" type="number" [(ngModel)]="create.noOfService" class="form-control required phone bottom-border">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                    <label for="date" class="block">Description</label>
+                  </div>
+                  <div class="col-sm-12">
+                    <textarea id="description" cols="5" rows="5" name="description" [(ngModel)]="create.description"
+                      type="text" class="form-control date-control bottom-border"></textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                    <label for="date" class="block">Address</label>
+                  </div>
+                  <div class="col-sm-12">
+                    <textarea id="address" cols="5" rows="5" name="address" [(ngModel)]="create.address" type="text"
+                      class="form-control date-control bottom-border"></textarea>
+                  </div>
+                </div>
+              </fieldset>
+              <h3><strong> Congratulation</strong> </h3>
+              <fieldset>
+
+                <img style="margin-top: 10vh;" src="../assets/files/assets/images/Congratulation.png" alt="" srcset="">
+                <h1 style="color:#3b8df9" class="m-t-15">You have one month free trial.</h1>
+
+
+              </fieldset>
+
+            </form>
+          </div>
+        </div>
+        <!-- end of form -->
+      </div>
+      <!-- end of col-sm-12 -->
+    </div>
+    <!-- end of row -->
+  </div>
+  <!-- end of container-fluid -->
+</section>

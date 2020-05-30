@@ -1,0 +1,275 @@
+<div class="page-wrapper">
+  <div class="page-body">
+    <div class="row">
+      <div class="col-md-6 col-xl-4">
+        <div class="card user-widget-card bg-c-blue">
+          <div class="card-block">
+            <i class="feather icon-user bg-simple-c-blue card1-icon"></i>
+            <h4>{{rWash}}</h4>
+            <p>Remaining Wash </p>
+            <button (click)="subscription()" class="more-info btn">Buy Now</button>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="card user-widget-card bg-c-pink">
+          <div class="card-block">
+            <i class="feather icon-home bg-simple-c-pink card1-icon"></i>
+            <h4>{{rDay}}</h4>
+            <p>Remaining Day</p>
+            <button (click)="subscription()" class="more-info btn">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-xl-4">
+        <div class="card user-widget-card bg-c-green">
+          <div class="card-block">
+            <i class="feather icon-alert-triangle bg-simple-c-green card1-icon"></i>
+            <h4>{{lDay |date }}</h4>
+            <p>Last Day Of subscription</p>
+            <button (click)="subscription()" class="more-info btn">Buy Now</button>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-xl-3 col-md-6">
+        <div class="card bg-c-yellow text-white">
+          <div class="card-block">
+            <div class="row align-items-center">
+              <div class="col">
+                <p class="m-b-5">Today Booking</p>
+                <h4 class="m-b-0">{{today}}</h4>
+              </div>
+              <div class="col col-auto text-right">
+                <i class="feather icon-user f-50 text-c-yellow"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card bg-c-green text-white">
+          <div class="card-block">
+            <div class="row align-items-center">
+              <div class="col">
+                <p class="m-b-5">Tomorrow
+                  Booking</p>
+                <h4 class="m-b-0">{{tomorrow}}</h4>
+              </div>
+              <div class="col col-auto text-right">
+                <i class="feather icon-credit-card f-50 text-c-green"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card bg-c-pink text-white">
+          <div class="card-block">
+            <div class="row align-items-center">
+              <div class="col">
+                <p class="m-b-5">{{liveMonth}} Booking</p>
+                <h4 class="m-b-0">{{month}}</h4>
+              </div>
+              <div class="col col-auto text-right">
+                <i class="feather icon-book f-50 text-c-pink"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card bg-c-blue text-white">
+          <div class="card-block">
+            <div class="row align-items-center">
+              <div class="col">
+                <p class="m-b-5">Total Booking</p>
+                <h4 class="m-b-0">{{grandBooking}}</h4>
+              </div>
+              <div class="col col-auto text-right">
+                <i class="feather icon-shopping-cart f-50 text-c-blue"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-xl-3 col-md-6">
+        <div class="card">
+          <div class="card-block">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h4 class="text-c-yellow f-w-600">${{grandTotal}}</h4>
+                <h6 class="text-muted m-b-0">All Earnings</h6>
+              </div>
+              <div class="col-4 text-right">
+                <i class="feather icon-bar-chart f-28"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer bg-c-yellow">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <!-- <p class="text-white m-b-0">% change</p> -->
+              </div>
+              <div class="col-3 text-right">
+                <i class="feather icon-trending-up text-white f-16"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card">
+          <div class="card-block">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h4 class="text-c-green f-w-600">${{grandCancelTotal}}-</h4>
+                <h6 class="text-muted m-b-0">Total Lost</h6>
+              </div>
+              <div class="col-4 text-right">
+                <i class="feather icon-file-text f-28"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer bg-c-green">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <!-- <p class="text-white m-b-0">% change</p> -->
+              </div>
+              <div class="col-3 text-right">
+                <i class="feather icon-trending-up text-white f-16"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card">
+          <div class="card-block">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h4 class="text-c-pink f-w-600">${{atShop}}</h4>
+                <h6 class="text-muted m-b-0">At Shop</h6>
+              </div>
+              <div class="col-4 text-right">
+                <i class="feather icon-calendar f-28"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer bg-c-pink">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <!-- <p class="text-white m-b-0">% change</p> -->
+              </div>
+              <div class="col-3 text-right">
+                <i class="feather icon-trending-up text-white f-16"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card">
+          <div class="card-block">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h4 class="text-c-blue f-w-600">${{outsideShop}}</h4>
+                <h6 class="text-muted m-b-0">Outside Shop</h6>
+              </div>
+              <div class="col-4 text-right">
+                <i class="feather icon-download f-28"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer bg-c-blue">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <!-- <p class="text-white m-b-0">% change</p> -->
+              </div>
+              <div class="col-3 text-right">
+                <i class="feather icon-trending-up text-white f-16"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- sale start -->
+      <div class="col-xl-5 col-md-12">
+        <div class="card table-card">
+          <div class="card-header">
+            <h5>Latest Booking</h5>
+          </div>
+          <div class="card-block">
+            <div class="table-responsive">
+              <table class="table table-hover table-borderless">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Where</th>
+                    <th>Time</th>
+                    <th class="text-right">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of (booking |async); let i=index">
+                    <td>{{i +1}}</td>
+                    <td> <label *ngIf="item.UserWant =='COME'" class="label label-lg label-success">At Shop</label>
+                      <label *ngIf="item.UserWant =='STAY'" class="label label-lg label-danger">Outside</label></td>
+                    <td>{{item.startTime | date }}</td>
+                    <td class="text-right">{{item.total}}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <div class="text-right  m-r-20">
+              <a (click)="bookingRouter()" class="b-b-primary text-primary">View all Booking </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h5>Booking Status</h5>
+          </div>
+          <div class="card-block">
+
+            <canvas height="200" baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"></canvas>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card">
+          <div class="card-block text-center">
+            <i class="feather icon-mail text-c-lite-green d-block f-40"></i>
+            <h4 class="m-t-15"><span class="text-c-lite-green">{{totalEmp}}</span> Employee</h4>
+            <p class="m-b-10">Work Force</p>
+            <button (click)="empRouter()" class="btn btn-primary btn-sm btn-round">Manage Here</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-block text-center">
+            <i class="feather icon-twitter text-c-green d-block f-40"></i>
+            <h4 class="m-t-15"><span class="text-c-blgreenue">{{totalService}}+</span> Service</h4>
+            <p class="m-b-10">Someone Remember this</p>
+            <button (click)="serviceRouter()" class="btn btn-success btn-sm btn-round">Check them out</button>
+          </div>
+        </div>
+      </div>
+      <!-- sale end -->
+    </div>
+  </div>
+</div>

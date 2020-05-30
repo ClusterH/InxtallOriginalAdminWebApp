@@ -1,0 +1,50 @@
+<div class="page-wrapper">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>About us</h4>
+            <span>Something That We Already Know...</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">About us</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header m-b-10">
+            <h5>About us </h5>
+            <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                <button class="btn hor-grd btn-grd-success m-r-20" (click)="changeAbout()">Update About us</button>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <app-ngx-editor [placeholder]="'Describe What We Are'" [spellcheck]="true" [(ngModel)]="about" height="500px"
+              minHeight="50px"></app-ngx-editor>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

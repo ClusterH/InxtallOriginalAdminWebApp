@@ -1,0 +1,31 @@
+{
+  "hosting": {
+    "public": "dist/carBoy",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      }
+    ]
+  },
+  "functions": {
+    "predeploy": "npm --prefix functions run build",
+    "source": "functions"
+  }
+}

@@ -1,0 +1,153 @@
+<div class="page-wrapper">
+  <!-- Page-header start -->
+  <div class="page-header">
+    <div class="row align-items-end">
+      <div class="col-lg-8">
+        <div class="page-header-title">
+          <div class="d-inline">
+            <h4>Booking</h4>
+            <span>Its Define What Happens In Company.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="page-header-breadcrumb">
+          <ul class="breadcrumb-title">
+            <li class="breadcrumb-item">
+              <a href="index.html"> <i class="feather icon-home"></i> </a>
+            </li>
+            <li class="breadcrumb-item"><a href="#!">Booking</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="page-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Main Booking</h5>
+            <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option">
+                <!-- <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <ngx-datatable [rows]="(items | async)" #mydatatable class="material" [headerHeight]="50" [limit]="5"
+              [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'">
+              <ngx-datatable-column name="#">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                  {{rowIndex+1}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="User">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{(row.user | async)?.email}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Address & Car">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{(row.userCar | async)?.Model}} & {{(row.userAddress | async)?.Address}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Assign Emp">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{(row.availableEmp | async)?.name}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Service" prop="serviceName">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <ng-container *ngFor="let s of value;">
+                    <label class=" label label-md label-primary">{{(s | async )?.name}}</label>
+                  </ng-container>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Total And Discount">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.total }} & {{row.discount}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="status">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <!-- {{(availableEmp | async)?.email}} -->
+                  <label (click)="assignModelOpen(row.id,row.AvailableEmpId)" *ngIf="row.status =='0'" class="label label-lg label-success">No
+                    Emp
+                    Assign Now</label>
+                  <label *ngIf="row.status =='1'" (click)="assignModelOpen(row.id,row.AvailableEmpId)" class="label label-lg label-danger">Change
+                    Emp Here</label>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Where The Wash" prop='UserWant'>
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <!-- {{(availableEmp | async)?.email}} -->
+                  <label *ngIf="value =='COME'" class="label label-lg label-success">At Shop</label>
+                  <label *ngIf="value =='STAY'" class="label label-lg label-danger">At UserLocation</label>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Time">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <!-- {{(availableEmp | async)?.email}} -->
+                  {{row.startTime | date:'medium'}} to {{row.endTime | date:'shortTime'}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Operation">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <button (click)="ViewFullBooking(row.id)" class="btn btn-warning btn-icon"><i class="far fa-eye"></i></button>&nbsp;&nbsp;
+                  <button (click)="cancelBooking(row.id,row.userId,row.AvailableEmpId)" class="btn btn-danger btn-icon"><i
+                      class="far fa-bell-slash"></i></button>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="assignEmp" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Change Or Assign Emp Here</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+
+
+          <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group row">
+                <label class="col-sm-12 col-form-label">Status</label>
+                <div class="col-sm-12">
+                  <select [(ngModel)]="assignEmpKey" name="status" class="form-control input-radius">
+                    <option value="{{item?.id}}" *ngFor="let item of (emp$ | async)">{{item?.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+        <button type="button" (click)="assignEmp()" class="btn btn-primary waves-effect waves-light ">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
